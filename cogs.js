@@ -20,7 +20,7 @@ module.exports = [
         options: {processImport: false}
       } : []
     ),
-    builds: {'src/index.scss': 'build/index.css'}
+    builds: {'src/index.scss': 'docs/index.css'}
   },
 
   // JavaScript
@@ -64,6 +64,6 @@ module.exports = [
         except: ['**/*+(-|_|.)min.js', 'node_modules/ammo.js/ammo.js']
       } : []
     ),
-    builds: {'src/index.js': 'build/index.js'}
+    builds: {'src/index.js': 'docs/index.js'}
   }
 ];
