@@ -3,24 +3,39 @@ import Hint from './hint';
 import React from 'react';
 import styles from './index.scss';
 
-const POEM = [
-  'Tripping along the busy sidewalk,',
-  'Our eyes look up and around.',
-  'We bump into each other as we stare and chat,',
-  'Our heads tilt and spin with each sound.',
-  'Beep.  Honk.  Whoosh.  Vroom.',
-  'Bump.  Clank.  Thump.  Zoom.',
-  'Watching the cabs go zipping by,',
-  'They screech as they stop, turn, and go.',
-  'There are so many people rushing about,',
-  'Up on the streets and in the subways below.',
-  'Achoo.  Ahem.  Bump.  Trip.',
-  'Rattle.  Shuffle.  Clink.  Zip.',
-  'We walk and watch, there’s no time to stop,',
-  'But there’s really so much to see.',
-  'There are nine blocks to go and we’re already late,',
-  'Oh no, look out for that tree!',
-  'Thud.'
+const PASSAGE = [
+  <div>
+    People in Austin, Texas became frightened as bats by the hundreds moved into the <Hint content={
+      <div>
+        <div>A narrow opening, especially in a rock or wall.</div>
+        <img src='gfx/crevices.jpg' />
+      </div>
+    } position='below'>crevices</Hint> of the <Hint
+      content='Build or form (something) again after it has been damaged or destroyed.'
+      position='below'
+    >reconstructed</Hint> downtown Congress Avenue Bridge in 1980. Looking up at the bridge at dusk or early dawn people exclaimed, “It’s Dracula’s Castle!” Car lights filtered through the crevices as they passed overhead. The bats hung upside down folding their wings about their bodies. The people wanted the bats <Hint content='To remove or destroy.' position='below'>eradicated</Hint>.
+  </div>,
+  'Bat Conservation International (BCI) told the people of Austin the truth about bats. They had nothing to fear if they did not try to handle the bats. In fact, the bats actually help the environment. Every spring and summer night the bats fly out from under the bridge and consume between 10,000 and 30,000 pounds of insects.',
+  <div>
+    The bat colony spends the summer in Austin and the winter in Mexico. Most of the bats are female. Each has a single baby in early June. Although there are thousands of pups born at the same time, each mother can find her little pup by its sound and scent. The baby weighs one  third the weight of its mother. Each pup will grow three inches long and have a wing span of approximately one foot. After five weeks, the pup can hunt insects on its own. Before that time, the mother <Hint content={
+      <div>
+        <div>Feed (a baby) at the breast.</div>
+        <img src='gfx/nurses.jpg' />
+      </div>
+    } position='below'>nurses</Hint> her pup.
+  </div>,
+  'The bat has a unique skeleton. It is specially adapted for flying. Its hands and arms form the wings. Highly developed arm bones hold out flaps of skin from the bat’s back and belly. A double layer of thin, flexible skin covers the long bones of the fingers making wings.',
+  <div>
+    Today, seeing the bats is a treat for the people of Austin as well as for the many <Hint content={
+      <div>
+        <div>A person who is traveling or visiting a place for pleasure.</div>
+        <img src='gfx/tourist.jpg' />
+      </div>
+    } position='below'>tourists</Hint>. From March through September people flock to the bridge to see the nightly flight of the bats. There are walking paths along the Colorado River which runs through Austin. You can walk the path close to the Congress Avenue Bridge and pick out a good spot to see the bats’ flight. Be sure to arrive about thirty minutes before dusk. As twilight fills the sky, so do thousands of bats. They darken the sky as they fly out on their nightly dining tour of choice insects. This is a sight you won’t want to miss!
+  </div>,
+  <div>
+    People of Austin are proud to have the largest <Hint content='In, relating to, or characteristic of a city or town.' position='below'>urban</Hint> population of bats in North America. They are a tourist attraction and a natural control of insect pests. These Mexican free tail bats also benefit by enjoying the feast of insects from their summer bridge home.
+  </div>
 ];
 
 const Items = ({items}) =>
@@ -37,9 +52,10 @@ const Items = ({items}) =>
     </tbody>
   </table>;
 
-const Poem = ({lines}) => <Items items={_.map(lines, n => [n, POEM[n - 1]])} />;
+const Passage = ({lines}) =>
+  <Items items={_.map(lines, n => [n, PASSAGE[n - 1]])} />;
 
-const Question = ({children, id, content}) =>
+const Question = ({children, content}) =>
   <div className={styles.question}>
     <div className={styles.questionContent}>{content}</div>
     <div className={styles.answers}>{children}</div>
@@ -47,152 +63,154 @@ const Question = ({children, id, content}) =>
 
 export default () =>
   <div className={styles.root}>
-    <div className={styles.poemTitle}>City Guests</div>
+    <div className={styles.poemTitle}>The Austin Bridge Bats</div>
 
-    <div className={styles.fullPoem}>
-      <Poem lines={_.range(1, POEM.length + 1)} />
+    <div className={styles.fullPassage}>
+      <Passage lines={_.range(1, PASSAGE.length + 1)} />
     </div>
 
-    <Question
-      content={
-        <span>1. In the poem, which words are examples of <Hint content='A word that imitates the sound it is describing'>onomatopoeia</Hint>?</span>
-      }
-    >
-      <Items
-        items={[
-          ['A', 'We walk and watch'],
-          ['B', 'Our heads tilt and spin'],
-          ['C', 'Achoo.  Ahem.  Bump.  Trip.'],
-          ['D', 'Up on the streets']
-        ]}
-      />
-    </Question>
-
-    <Question
-      content='2. What line in the poem has a different rhythm?'
-    >
-      <Items
-        items={[
-          ['A', <Hint content={<Poem lines={[6]} />} position='right'>Line 6</Hint>],
-          ['B', <Hint content={<Poem lines={[7]} />} position='right'>Line 7</Hint>],
-          ['C', <Hint content={<Poem lines={[15]} />} position='right'>Line 15</Hint>],
-          ['D', <Hint content={<Poem lines={[17]} />} position='right'>Line 17</Hint>]
-        ]}
-      />
-    </Question>
-
-    <Question
-      content='3. Which of these lines from the poem rhyme?'
-    >
-      <Items
-        items={[
-          ['A', <Hint content={<Poem lines={[1, 3]} />} position='right'>Lines 1 and 3</Hint>],
-          ['B', <Hint content={<Poem lines={[5, 6]} />} position='right'>Lines 5 and 6</Hint>],
-          ['C', <Hint content={<Poem lines={[10, 11]} />} position='right'>Lines 10 and 11</Hint>],
-          ['D', <Hint content={<Poem lines={[13, 15]} />} position='right'>Lines 13 and 15</Hint>]
-        ]}
-      />
-    </Question>
+    <img src='gfx/diagram.png' style={{maxWidth: '100%'}}/>
 
     <Question
       content={
         <div>
-          <div>4. Read lines 3 and 4.</div>
-          <Poem lines={[3, 4]} />
-          <div>These lines best support the idea that the speakers...</div>
+          1. Look at the dictionary entry:
+          <br />
+          <br />
+          <strong>han•dle</strong> \han’dl\ <i>verb</i><br />
+          <strong>1.</strong> to respond in a certain way <strong>2.</strong> to have overall responsibility <strong>3.</strong> to try to examine <strong>4.</strong> to put up with<br />
+          <br />
+          Which definition applies to the word handle as used in <Hint content={<Passage lines={[2]} />} position='right'>paragraph 2</Hint>?
         </div>
       }
     >
       <Items
         items={[
-          ['A', 'are clumsy'],
-          ['B', 'do not like the noise'],
-          ['C', 'are interested in all of the sights and sounds around them'],
-          ['D', 'should not talk while they are walking']
+          ['A', 'Definition 1'],
+          ['B', 'Definition 2'],
+          ['C', 'Definition 3'],
+          ['D', 'Definition 4']
         ]}
       />
     </Question>
 
     <Question
       content={
-        <span>5. What can you conclude from <Hint content={<Poem lines={[17]} />}>the last line of the poem</Hint>?</span>
+        <div>2. The best summary for this selection would be –</div>
       }
     >
       <Items
         items={[
-          ['A', 'Cabs are screeching as they zip by the speakers.'],
-          ['B', 'The speakers are in a hurry because they are late.'],
-          ['C', 'Someone runs into a tree.'],
-          ['D', 'The speakers are in the middle of a lot of traffic and people.']
+          ['F', 'A bat colony overtook the Congress Avenue Bridge in Austin. The people wanted to kill all the bats because they were afraid of them. Today, it is called “Dracula’s Castle” by tourists that visit the area.'],
+          ['G', 'Bats have an unusual skeleton. They have five fingers and their wings have a double layer of skin. They are good for the environment because they eat 10,000 to 30,000 pounds of bats.'],
+          ['H', 'Bats come to Austin every winter from Mexico. They care for their young until they are old enough to hunt on their own. The mother is able to recognize her offspring based on its sound and scent.'],
+          ['J', 'A bat colony overtook the Congress Avenue Bridge after being reconstructed. People feared the colony; therefore, the BCI educated them about the environmental benefits. Today, the bats are a major attraction to tourists.']
         ]}
       />
     </Question>
 
     <Question
       content={
-        <span>6. This poem is an example of narrative poetry <strong>mostly</strong> because it...</span>
+        <div>3. What is the main idea of <Hint content={<Passage lines={[5]} />} position='right'>paragraph five</Hint>?</div>
       }
     >
       <Items
         items={[
-          ['A', 'tells a story'],
-          ['B', 'has a funny ending'],
-          ['C', 'describes feelings'],
-          ['D', 'has lines that rhyme']
+          ['A', 'The bats have become a major attraction.'],
+          ['B', 'The best place to see the bats is from the river bank.'],
+          ['C', 'The bats are a big hit in Austin during the winter months.'],
+          ['D', 'There are not many insects in Austin.']
         ]}
       />
     </Question>
 
     <Question
       content={
-        <span>7. This poem has __ <Hint content={<img src='gfx/stanzas.png' />}>stanzas</Hint> and ___ <Hint content={<img src='gfx/lines.png' />}>lines</Hint>.</span>
+        <div>4. A mother bat can distinguish her pup from the others because—</div>
       }
     >
       <Items
         items={[
-          ['A', '17 stanzas  and 1 line'],
-          ['B', '2  stanzas and 17 lines'],
-          ['C', '1 stanza and 17 lines'],
-          ['D', 'None of the above']
+          ['F', 'pups stay in the same spot'],
+          ['G', 'pups have a unique smell and sound'],
+          ['H', 'pups’ shrieks are different'],
+          ['J', 'pups look different from one another']
         ]}
       />
     </Question>
 
     <Question
       content={
-        <span>8. The poet uses onomatopoeia in <Hint content={<Poem lines={[5, 6]} />}>lines 5 and 6</Hint> to help the reader understand...</span>
+        <div>5. The main mission of Bat Conservation International is to—</div>
       }
     >
       <Items
         items={[
-          ['A', 'how much there is to see in the city'],
-          ['B', 'all the things that they can do in the city'],
-          ['C', 'the sounds they hear in the city'],
-          ['D', 'how they feel in the city']
+          ['A', 'protect bats'],
+          ['B', 'raise bats'],
+          ['C', 'attract tourists'],
+          ['D', 'establish boundaries']
         ]}
       />
     </Question>
 
     <Question
       content={
-        <span>9. <Hint content={<Poem lines={[13, 14, 15]} />}>Lines 13 through 15</Hint> show that the speaker...</span>
+        <div>6. The author included paragraphs <Hint content={<Passage lines={[3]} />} position='right'>3</Hint> and <Hint content={<Passage lines={[4]} />} position='right'>4</Hint> to—</div>
       }
     >
       <Items
         items={[
-          ['A', 'is lost in the city and needs help'],
-          ['B', 'is late to work and is trying to hurry'],
-          ['C', 'is sightseeing with family and have a busy schedule'],
-          ['D', 'is tired of walking and wants to go home']
+          ['F', 'explain how the pup hunts for its own food'],
+          ['G', 'outline how the bats migrate and take care of their young'],
+          ['H', 'provide the reader with background knowledge on bats'],
+          ['I', 'tell the reader about the reconstruction in Austin']
         ]}
       />
     </Question>
 
     <Question
-      content='10. According to the speaker, how do they feel about being city guests? (Short answer, use evidence from poem)'
-    />
+      content={
+        <div>7. What can the reader conclude about bats from the information presented by the author?</div>
+      }
+    >
+      <Items
+        items={[
+          ['A', 'Bats are a part of every urban society.'],
+          ['B', 'Bats frighten people, yet help the environment.'],
+          ['C', 'Bats perform for the tourists in Austin.'],
+          ['D', 'Bats overrun the human population']
+        ]}
+      />
+    </Question>
 
     <Question
-      content='Bonus (10 points) Draw an image of what the poet is describing from the poem. Provide evidence from the poem to support your image.'
-    />
-  </div>
+      content={
+        <div>8. The residents of Austin appreciate the bats because—</div>
+      }
+    >
+      <Items
+        items={[
+          ['F', 'they were afraid of the bats'],
+          ['G', 'bats are shy and like to hide from the tourists'],
+          ['H', 'they control the insect population'],
+          ['I', 'bats are proud animals']
+        ]}
+      />
+    </Question>
+
+    <Question
+      content={
+        <div>9. According to the <Hint content={<img src='gfx/diagram.png' />} position='below'>diagram</Hint>, a bat has—</div>
+      }
+    >
+      <Items
+        items={[
+          ['A', 'five fingers'],
+          ['B', 'four feet'],
+          ['C', 'skinned wings'],
+          ['D', 'great hearing']
+        ]}
+      />
+    </Question>
+  </div>;

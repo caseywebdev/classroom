@@ -1,4 +1,61 @@
+.components\/hint\:container-\/7aU6 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  text-decoration: underline; }
+.components\/index\:root-pVuV3 {
+  background: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px; }
 
-.\/7aU6{cursor:pointer;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;text-decoration:underline}
-.pVuV3{background:#fff;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);margin:0 auto;max-width:600px;padding:20px}.JXVpJ{font-size:24px;text-align:center}.k9SKv{border-spacing:10px}.ew7O2{color:#999;font-family:monospace;text-align:right;width:20px}.KGiVF{margin:20px auto}.KGiVF .k9SKv{margin:0 auto}.Yzspw:not(:last-child){margin-bottom:40px}.\/3fTq{margin-bottom:10px}.AhH3Y{margin-left:20px}
-body{background:#eee;color:#333;font-family:'Helvetica Neue','Lucida Grande',Arial,Helvetica,sans-serif;margin:0;padding:20px}.Popover-body{background:#fff;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);padding:10px}.Popover-body img{max-width:400px}.Popover-tip{fill:#666}
+.components\/index\:poemTitle-JXVpJ {
+  font-size: 24px;
+  text-align: center; }
+
+.components\/index\:items-k9SKv {
+  border-spacing: 10px; }
+
+.components\/index\:itemId-ew7O2 {
+  color: #999;
+  font-family: monospace;
+  text-align: right;
+  width: 20px;
+  vertical-align: top; }
+
+.components\/index\:fullPoem-KGiVF {
+  margin: 20px auto; }
+  .components\/index\:fullPoem-KGiVF .components\/index\:items-k9SKv {
+    margin: 0 auto; }
+
+.components\/index\:question-Yzspw:not(:last-child) {
+  margin-bottom: 40px; }
+
+.components\/index\:questionContent-\/3fTq {
+  margin-bottom: 10px; }
+
+.components\/index\:answers-AhH3Y {
+  margin-left: 20px; }
+body {
+  background: #eee;
+  color: #333;
+  font-family: 'Helvetica Neue', 'Lucida Grande', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px; }
+
+.Popover-body {
+  background: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  max-width: 400px; }
+  .Popover-body img {
+    max-width: 100%; }
+
+.Popover-tip {
+  fill: #666; }
